@@ -1,4 +1,3 @@
-# Introduction to scREnf
 
 An Entropy Based Feature Selection- Application on Single cell RNA Sequence Data
 
