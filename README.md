@@ -9,7 +9,7 @@ A novel and Robust Entropy based Feature (gene) Selection method for large Singl
 
 # How to use sc-REnF
 
-## Data Loading
+## Data Loading and Preprocessing
 
 
 Load the Libraries
@@ -51,6 +51,9 @@ AAAS 1.526881 0.000000 0.000000
 ```
 
 A total of 465 cells and 8994 genes are remaining in the dataset after cell, gene filtering, and Normalization.
+
+
+## Feature (Gene Selection)
 
 
 
