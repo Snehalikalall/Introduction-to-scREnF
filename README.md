@@ -9,10 +9,16 @@ A novel and Robust Entropy based Feature (gene) Selection method for large Singl
 
 # How to use sc-REnF
 
+## Data Loading
+
 Laod the following libraies.  
 
 ```
-library(Copula)
-library('Rfast')
+library(SingleCellExperiment)
+library(edgeR)
+library(scDatasets)
+library(biomaRt)
+library('Linnorm')
 ```
+We will give the method demonstration with single cell RNA sequencing on 466 cells to capture the cellular complexity of the adult and fetal human brain at a whole transcriptome level. For more details about the study, see [A survey of human brain transcriptome diversity at the single cell level](https://www.pnas.org/content/112/23/7285#:~:text=Our%20results%20show%20that%20MHCI,as%20endothelial%20cells%20and%20microglia.)
 
