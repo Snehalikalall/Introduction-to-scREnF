@@ -28,9 +28,9 @@ Read the gene expression data using (SingleCellExperiment object), calculate CPM
 
 
 ```
-darmanis <- readRDS("darmanis.rds")
+data <- readRDS("darmanis.rds")
 ```
-
+For demonstration purposes, we apply a standard *Linnorm* normalization, however any other normalization approach may be used.
 
 
 
