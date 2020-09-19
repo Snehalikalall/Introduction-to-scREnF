@@ -41,10 +41,13 @@ preprocessedata= normalized_data(data)
 ```
 
 ```
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
+dim(preprocessedata)
+[1] 10564    90
+
+Normalized_Biase_data[1:2,1:3]
+         zygote   zygote   zygote   
+RPS11   8.542289 8.275977 8.199267 
+ELMO2   3.419379 3.918050 3.667263 
 ```
 
 
