@@ -30,9 +30,13 @@ Read the gene expression data using (SingleCellExperiment object), calculate CPM
 ```
 data <- readRDS("darmanis.rds")
 ```
-For demonstration purposes, we apply a standard *Linnorm* normalization, however any other normalization approach may be used.
+For demonstration purposes, we apply a standard *Linnorm* normalization with minimum read count =5 in 10 percent cell. However any other normalization approach may be used.
+Gene should be in row, Cells should be in coloumn
 
 
+```
+preprocessedata= normalized_data(data)
 
+```
 
 
