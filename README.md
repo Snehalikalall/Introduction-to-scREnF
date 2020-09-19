@@ -11,7 +11,7 @@ A novel and Robust Entropy based Feature (gene) Selection method for large Singl
 
 ## Data Loading
 
-- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `Load the following libraies.`  
+- <span style=“color:red;”> Load the following libraies.</span>   
 
 ```
 library(SingleCellExperiment)
