@@ -1,1 +1,1 @@
-# Introduction-to-scREnf
+# Introduction to scREnf
