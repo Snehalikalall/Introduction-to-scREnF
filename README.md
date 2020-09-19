@@ -55,6 +55,15 @@ A total of 465 cells and 8994 genes are remaining in the dataset after cell, gen
 
 ## Feature (Gene Selection)
 
+Load the libraries
+
+```
+library('MASS')
+library(foreach)
+library(doParallel)
+library('Rfast')
+```
+Apply the feature (gene) selection using Renyi and Tsallis with preprocesse data and cell types. Default--- Core Number (p=20), q-values (q=0.7,0.3) , Number of genes to be selected (nf=50) 
 
 ```
 RenyiFeadata=Renyifeaturedata(data,cell,p,q,nf)
