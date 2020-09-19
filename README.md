@@ -41,14 +41,16 @@ preprocessedata= normalized_data(data)
 ```
 
 ```
-dim(preprocessedata)
-[1] 10564    90
+dim(preprocessedata) 
+[1] 8994    465
 
-Normalized_Biase_data[1:2,1:3]
-         zygote   zygote   zygote   
-RPS11   8.542289 8.275977 8.199267 
-ELMO2   3.419379 3.918050 3.667263 
+preprocessedata[1:2,1:3]
+      Brain    Brain    Brain
+A2M  0.000000 4.953487 4.908761
+AAAS 1.526881 0.000000 0.000000
 ```
+
+A total of 465 cells and 8994 genes are remaining in the dataset after cell, gene filtering, and Normalization.
 
 
 
