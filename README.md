@@ -71,3 +71,26 @@ TsallisFeadata=Tsallisfeaturedata(data,cell,p,q,nf)
 
 ```
 
+The  Reduced Darmanis data using Renyi entropy
+
+```
+dim(RenyiFeadata)
+[1] 466  50
+RenyiFeadata[1:2,1:3]
+              BRD7P3 MEX3A TMSB15A
+astrocytes  2.749929     0       0
+endothelial 0.000000     0       0
+```
+
+The  Reduced Darmanis data using Tsallis entropy
+
+```
+dim(TsallisFeadata)
+[1] 466  50
+TsallisFeadata[1:2,1:3]
+              PCP4     DDX5      A2M
+astrocytes     0 4.095699 0.000000
+endothelial    0 5.816251 4.955909
+```
+
+## Marker Gene Selection and Clustering
