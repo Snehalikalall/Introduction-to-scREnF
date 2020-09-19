@@ -56,4 +56,9 @@ A total of 465 cells and 8994 genes are remaining in the dataset after cell, gen
 ## Feature (Gene Selection)
 
 
+```
+RenyiFeadata=Renyifeaturedata(data,cell,p,q,nf)
+TsallisFeadata=Tsallisfeaturedata(data,cell,p,q,nf)
+
+```
 
