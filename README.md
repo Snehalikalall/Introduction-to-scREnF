@@ -111,24 +111,94 @@ adata1=sc.read_csv('renyi03_darmanis.csv', delimiter=',', first_column_names=Non
 
 Using PCA dimensionality reduction and Leiden clustering
 
-``
+```
 sc.tl.pca(adata1, svd_solver='arpack')
 sc.pl.pca_variance_ratio(adata1,n_pcs=20,log=True)
 ```
 <img src="./pca_darmanis.png">
 
+
 ```
-###create neighborhood graph using 10 pcs 
+#create neighborhood graph using 10 pcs 
 sc.pp.neighbors(adata1, n_neighbors=15, n_pcs=30)
 ##dim reduction using umap
 sc.tl.umap(adata1)
 #Leiden clustering
 import leidenalg
 sc.tl.leiden(adata1)
+##visualizing clusters
+sc.pl.umap(adata1, color=['leiden'])
+```
+<img src="./cluster_darmanis.png">
+
+save the clustering results
+
+```
+pd.DataFrame(adata1.obs).to_csv("darmanis_leiden.csv")
 ```
 
 
 ## Marker selection form identified clusters
+
+Compute a ranking for the highly differential genes in each cluster using Wilcoxon-RankSum test
+
+```
+sc.tl.rank_genes_groups(adata1, 'leiden', method='wilcoxon',key_added = "wilcoxon")
+sc.pl.rank_genes_groups(adata1, n_genes=30, sharey=False,key="wilcoxon")
+```
+
+<img src="./wilcox_darmanis.png">
+
+Top 10 DE genes for each cluster using Wilcox-Ranksum Test
+
+```
+#save top 10 DE genes for each cluster using wilcox-ranksum test
+result = adata1.uns['wilcoxon']
+groups = result['names'].dtype.names
+p=pd.DataFrame(
+    {group + '_' + key[:1]: result[key][group]
+    for group in groups for key in ['names', 'pvals']}).head(10)
+pd.DataFrame(p).to_csv("darmanis_marker.csv")
+```
+Visualizing top 5 DE genes for each cluster in a heatmap using wilcox results
+
+```
+sc.pl.rank_genes_groups_heatmap(adata1, n_genes=5, key="wilcoxon", groupby="leiden", show_gene_labels=True)
+```
+<img src="./heat_darmanis.png">
+
+Visualizing top 5 DE genes for each cluster in a dotplot using t-test results. Here color of dot represents mean expression of the gene in those cell, dot size represents fraction of cells expressing a gene  
+
+```
+sc.pl.rank_genes_groups_dotplot(adata1, n_genes=5, key="wilcoxon", groupby="leiden")
+```
+<img src="./dotplot_darmanis.png">
+
+Visualizing top 5 DE genes for each cluster in a stacked violin plot using t-test results 
+
+```
+sc.pl.rank_genes_groups_stacked_violin(adata1, n_genes=5, key="wilcoxon", groupby="leiden")
+```
+
+Visualizing top 5 DE genes for each cluster in a matrixplot using t-test results. matrixplot represents mean expression of a gene in a cluster as a heatmap.
+
+```
+sc.pl.rank_genes_groups_matrixplot(adata1, n_genes=5, key="wilcoxon", groupby="leiden")
+```
+
+Showing expression of some marker genes (e.g VIP,DCX) across Leiden groups
+
+```
+sc.pl.violin(adata1, ['VIP'], groupby='leiden')
+```
+<img src="./VIP_darmanis.png">
+
+```
+sc.pl.violin(adata1, ['DCX'], groupby='leiden')
+```
+<img src="./dcx_darmanis.png">
+
+
 
 
 
