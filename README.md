@@ -94,7 +94,9 @@ endothelial    0 5.816251 4.955909
 ```
 ## saving the results
 
-```write.csv(TsallisFeadata, file="tsallisd.csv")
+```
+write.csv(TsallisFeadata, file="tsallisd.csv")
+write.csv(RenyiFeadata, file="renyi03_darmanis.csv.csv")
 ```
 
 ## Clustering using selected feature
@@ -104,16 +106,26 @@ import libraries in python and importing the data
 ```import numpy as np
 import pandas as pd
 import scanpy as sc
-import leidenalg
-adata1=sc.read_csv('tsallisd.csv',delimiter=',', first_column_names=None, dtype='float32')
+adata1=sc.read_csv('renyi03_darmanis.csv', delimiter=',', first_column_names=None, dtype='float32')
 ```
 
 Using PCA dimensionality reduction and Leiden clustering
 
-```sc.tl.pca(adata1, svd_solver='arpack')
-   sc.pl.pca_variance_ratio(adata1,n_pcs=20,log=True,save="pc_cbmc.svg")
+``
+sc.tl.pca(adata1, svd_solver='arpack')
+sc.pl.pca_variance_ratio(adata1,n_pcs=20,log=True)
 ```
-<img src="./myimage.jpg">
+<img src="./pca_darmanis.png">
+
+```
+###create neighborhood graph using 10 pcs 
+sc.pp.neighbors(adata1, n_neighbors=15, n_pcs=30)
+##dim reduction using umap
+sc.tl.umap(adata1)
+#Leiden clustering
+import leidenalg
+sc.tl.leiden(adata1)
+```
 
 
 ## Marker selection form identified clusters
