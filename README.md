@@ -94,27 +94,26 @@ endothelial    0 5.816251 4.955909
 ```
 ## saving the results
 
-```
-write.csv(TsallisFeadata, file="tsallisd.csv")
-
+```write.csv(TsallisFeadata, file="tsallisd.csv")
 ```
 
 ## Clustering using selected feature
 
 import libraries in python and importing the data
-```
-import numpy as np
+
+```import numpy as np
 import pandas as pd
 import scanpy as sc
 import leidenalg
 adata1=sc.read_csv('tsallisd.csv',delimiter=',', first_column_names=None, dtype='float32')
-
 ```
 
 Using PCA dimensionality reduction and Leiden clustering
 
-
-
+```sc.tl.pca(adata1, svd_solver='arpack')
+   sc.pl.pca_variance_ratio(adata1,n_pcs=20,log=True,save="pc_cbmc.svg")
+```
+<img src="./myimage.jpg">
 
 
 ## Marker selection form identified clusters
