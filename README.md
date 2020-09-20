@@ -103,7 +103,8 @@ write.csv(RenyiFeadata, file="renyi03_darmanis.csv.csv")
 
 import libraries in python and importing the data
 
-```import numpy as np
+```
+import numpy as np
 import pandas as pd
 import scanpy as sc
 adata1=sc.read_csv('renyi03_darmanis.csv', delimiter=',', first_column_names=None, dtype='float32')
