@@ -92,7 +92,7 @@ TsallisFeadata[1:2,1:3]
 astrocytes     0 4.095699 0.000000
 endothelial    0 5.816251 4.955909
 ```
-## saving the results
+## Saving the results
 
 ```
 write.csv(TsallisFeadata, file="Tsallisd.csv")
