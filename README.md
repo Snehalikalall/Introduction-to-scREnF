@@ -95,8 +95,8 @@ endothelial    0 5.816251 4.955909
 ## saving the results
 
 ```
-write.csv(TsallisFeadata, file="tsallisd.csv")
-write.csv(RenyiFeadata, file="renyi03_darmanis.csv.csv")
+write.csv(TsallisFeadata, file="Tsallisd.csv")
+write.csv(RenyiFeadata, file="Renyid.csv.csv")
 ```
 
 ## Clustering using selected feature
@@ -180,12 +180,14 @@ Visualizing top 5 DE genes for each cluster in a stacked violin plot using t-tes
 ```
 sc.pl.rank_genes_groups_stacked_violin(adata1, n_genes=5, key="wilcoxon", groupby="leiden")
 ```
+<img src="./violin_darmanis.png">
 
-Visualizing top 5 DE genes for each cluster in a matrixplot using t-test results. matrixplot represents mean expression of a gene in a cluster as a heatmap.
+Visualizing top 5 DE genes for each cluster in a matrixplot using wilcox results. matrixplot represents mean expression of a gene in a cluster as a heatmap.
 
 ```
 sc.pl.rank_genes_groups_matrixplot(adata1, n_genes=5, key="wilcoxon", groupby="leiden")
 ```
+<img src="./heat2_darmanis.png">
 
 Showing expression of some marker genes (e.g VIP,DCX) across Leiden groups
 
