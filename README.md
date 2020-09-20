@@ -92,5 +92,33 @@ TsallisFeadata[1:2,1:3]
 astrocytes     0 4.095699 0.000000
 endothelial    0 5.816251 4.955909
 ```
+## saving the results
 
-## Marker Gene Selection and Clustering
+```
+write.csv(TsallisFeadata, file="tsallisd.csv")
+
+```
+
+## Clustering using selected feature
+
+import libraries in python and importing the data
+```
+import numpy as np
+import pandas as pd
+import scanpy as sc
+import leidenalg
+adata1=sc.read_csv('tsallisd.csv',delimiter=',', first_column_names=None, dtype='float32')
+
+```
+
+Using PCA dimensionality reduction and Leiden clustering
+
+
+
+
+
+## Marker selection form identified clusters
+
+
+
+
