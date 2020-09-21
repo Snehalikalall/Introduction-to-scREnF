@@ -42,7 +42,7 @@ preprocessedata= normalized_data(data)
 
 ```
 dim(preprocessedata) 
-[1] 8994    465
+[1] 8994    466
 
 preprocessedata[1:2,1:3]
       Brain    Brain    Brain
@@ -50,7 +50,7 @@ A2M  0.000000 4.953487 4.908761
 AAAS 1.526881 0.000000 0.000000
 ```
 
-A total of 465 cells and 8994 genes are remaining in the dataset after cell, gene filtering, and Normalization.
+A total of 466 cells and 8994 genes are remaining in the dataset after cell, gene filtering, and Normalization.
 
 
 ## Feature (Gene Selection)
@@ -107,7 +107,7 @@ import libraries in python and importing the data
 import numpy as np
 import pandas as pd
 import scanpy as sc
-adata1=sc.read_csv('renyi03_darmanis.csv', delimiter=',', first_column_names=None, dtype='float32')
+adata1=sc.read_csv('Renyid.csv', delimiter=',', first_column_names=None, dtype='float32')
 ```
 
 Using PCA dimensionality reduction and Leiden clustering
