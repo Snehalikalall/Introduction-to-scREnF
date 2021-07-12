@@ -61,8 +61,8 @@ library(doParallel)
 Apply the feature (gene) selection using Renyi and Tsallis with preprocesse data and cell types. Default--- Core Number (p=20), q-values (q=0.7,0.3) , Number of genes to be selected (nf=500) 
 
 ```
-RenyiFeadata=Renyifeaturedata(data,cell,gene,p,q,nf)
-TsallisFeadata=Tsallisfeaturedata(data,cell,gene,p,q,nf)
+RenyiFeadata=Renyifeature(data,cell,gene,p,q,nf)
+TsallisFeadata=Tsallisfeature(data,cell,gene,p,q,nf)
 
 ```
 
@@ -115,8 +115,8 @@ sc.pl.pca_variance_ratio(adata1,n_pcs=20,log=True)
 
 
 ```
-#create neighborhood graph using 10 pcs 
-sc.pp.neighbors(adata1, n_neighbors=15, n_pcs=30)
+#create neighborhood graph using 20 pcs 
+sc.pp.neighbors(adata1, n_neighbors=15, n_pcs=20)
 ##dim reduction using umap
 sc.tl.umap(adata1)
 #Leiden clustering
