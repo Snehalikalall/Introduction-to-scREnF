@@ -22,7 +22,7 @@ library(biomaRt)
 library('Linnorm')
 ```
 
-We will give the method demonstration with single cell RNA sequencing on 466 cells to capture the cellular complexity of the adult and fetal human brain at a whole transcriptome level. For more details about the study, see [A survey of human brain transcriptome diversity at the single cell level](https://www.pnas.org/content/112/23/7285#:~:text=Our%20results%20show%20that%20MHCI,as%20endothelial%20cells%20and%20microglia.)
+We will give the method demonstration on Darmanis Dataset. For more details about the data, see [A survey of human brain transcriptome diversity at the single cell level](https://www.pnas.org/content/112/23/7285#:~:text=Our%20results%20show%20that%20MHCI,as%20endothelial%20cells%20and%20microglia.)
 
 Read the gene expression data using (SingleCellExperiment object), calculate CPM values and extract metadata.
 
@@ -58,16 +58,14 @@ A total of 466 cells and 8994 genes are remaining in the dataset after cell, gen
 Load the libraries
 
 ```
-library('MASS')
 library(foreach)
 library(doParallel)
-library('Rfast')
 ```
-Apply the feature (gene) selection using Renyi and Tsallis with preprocesse data and cell types. Default--- Core Number (p=20), q-values (q=0.7,0.3) , Number of genes to be selected (nf=50) 
+Apply the feature (gene) selection using Renyi and Tsallis with preprocesse data and cell types. Default--- Core Number (p=20), q-values (q=0.7,0.3) , Number of genes to be selected (nf=500) 
 
 ```
-RenyiFeadata=Renyifeaturedata(data,cell,p,q,nf)
-TsallisFeadata=Tsallisfeaturedata(data,cell,p,q,nf)
+RenyiFeadata=Renyifeaturedata(data,cell,gene,p,q,nf)
+TsallisFeadata=Tsallisfeaturedata(data,cell,gene,p,q,nf)
 
 ```
 
@@ -75,7 +73,7 @@ The  Reduced Darmanis data using Renyi entropy
 
 ```
 dim(RenyiFeadata)
-[1] 466  50
+[1] 466  500
 RenyiFeadata[1:2,1:3]
               BRD7P3 MEX3A TMSB15A
 astrocytes  2.749929     0       0
@@ -86,7 +84,7 @@ The  Reduced Darmanis data using Tsallis entropy
 
 ```
 dim(TsallisFeadata)
-[1] 466  50
+[1] 466  500
 TsallisFeadata[1:2,1:3]
               PCP4     DDX5      A2M
 astrocytes     0 4.095699 0.000000
