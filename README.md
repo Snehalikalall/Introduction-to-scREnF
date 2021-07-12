@@ -16,9 +16,6 @@ Load the Libraries
 
 ```
 library(SingleCellExperiment)
-library(edgeR)
-library(scDatasets)
-library(biomaRt)
 library('Linnorm')
 ```
 
